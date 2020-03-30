@@ -4,6 +4,8 @@
     <bytecodeTargetLevel>
       <module name="first-selenium-project.main" target="1.8" />
       <module name="first-selenium-project.test" target="1.8" />
+      <module name="Varvara.first-selenium-project.main" target="1.8" />
+      <module name="Varvara.first-selenium-project.test" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
