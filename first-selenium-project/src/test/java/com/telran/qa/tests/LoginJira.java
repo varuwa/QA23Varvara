@@ -4,9 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 import java.util.concurrent.TimeUnit;
 
@@ -14,8 +12,7 @@ public class LoginJira {
     WebDriver wd;
 
 
-
-    @BeforeClass
+    @BeforeMethod
     public void setUp() {
         wd = new ChromeDriver();
         wd.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -25,16 +22,31 @@ public class LoginJira {
     }
 
     @Test
-    public void loginJira() throws InterruptedException {
+    public void testLoginJira() throws InterruptedException {
         type(By.id("login-form-username"), "varuwa");
         type(By.id("login-form-password"), "8888");
         click(By.id("login-form-submit"));
 
-        Assert.assertTrue(isElementPresent(By.id("usernameerror")));
-        //String errorMessage = wd.findElement(By.id("usernameerror")).getText();
-        //Assert.assertEquals(errorMessage, "Sorry, your username and password are incorrect - please try again.");
+        Assert.assertFalse(isElementPresent(By.className("aui-message-error")));
 
         Thread.sleep(3000);
+    }
+
+    @Test
+    public void testLoginJiraNeg() throws InterruptedException {
+        type(By.id("login-form-username"), "aruwa");
+        type(By.id("login-form-password"), "888");
+        click(By.id("login-form-submit"));
+
+        Assert.assertTrue(isElementPresent(By.className("aui-message-error")));
+        String errorMessage = wd.findElement(By.className("aui-message-error")).getText();
+        Assert.assertEquals(errorMessage, "Sorry, your username and password are incorrect - please try again.");
+
+        Thread.sleep(3000);
+    }
+
+    public void click(By locator) {
+        wd.findElement(locator).click();
     }
 
     public void type(By locator, String text) {
@@ -43,15 +55,11 @@ public class LoginJira {
         wd.findElement(locator).sendKeys(text);
     }
 
-    public void click(By locator) {
-        wd.findElement(locator).click();
+    public boolean isElementPresent(By locator) {
+        return wd.findElements(locator).size() > 0;
     }
 
-    // public boolean isElementPresent() {
-   //     return wd.findElements(By.id("usernameerror")).size() > 0;
-   // }
-
-    @AfterClass
+    @AfterMethod
     public void tearDown() {
         wd.quit();
     }
