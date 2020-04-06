@@ -46,13 +46,13 @@ public class LoginJira {
     }
 
     public void click(By locator) {
-        wd.findElement(locator).click();
+        wd.findElement(locator).click(); // wd.findElement(By.name("name").click();
     }
 
     public void type(By locator, String text) {
         click(locator);
-        wd.findElement(locator).clear();
-        wd.findElement(locator).sendKeys(text);
+        wd.findElement(locator).clear();  // wd.findElement(By.name("name")).clear();
+        wd.findElement(locator).sendKeys(text); //wd.findElement(By.name("name")).sendKeys("Text");
     }
 
     public boolean isElementPresent(By locator) {
