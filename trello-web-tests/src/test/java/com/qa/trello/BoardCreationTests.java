@@ -9,7 +9,7 @@ public class BoardCreationTests extends TestBase {
     public void testBoardCreation() {
         int before = getBoardsCount();
         initBoardCreation();
-        fillBoardForm("Test", "[title='blue']");
+        fillBoardForm("TestNewBoard");
         confirmBoardCreation();
         returnToHomePage();
         int after = getBoardsCount();
