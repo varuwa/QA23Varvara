@@ -1,6 +1,6 @@
 package com.qa.trello;
 
-import org.openqa.selenium.By;
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -11,12 +11,14 @@ public class TeamCreationTests extends TestBase {
     public void testTeamCreation() throws InterruptedException {
         int before = getTeamsCount();
         initTeamCreation();
-        fillForm("TestNewTeam", By.cssSelector("[class='_38pq5NbRWAG39y']"));
+        fillForm("TestNewTeam");
+        inviteTeamLater();
         confirmTeamCreation();
-        Thread.sleep(3000);
+        Thread.sleep(2000);
         returnToHomePage();
         int after = getTeamsCount();
         Assert.assertEquals(after, before + 1);
         System.out.println("was: " + before + " now: " + after);
     }
+
 }

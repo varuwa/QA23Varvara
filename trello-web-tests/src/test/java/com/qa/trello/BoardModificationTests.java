@@ -1,25 +1,29 @@
 package com.qa.trello;
 
+import org.openqa.selenium.By;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class BoardModificationTests extends TestBase {
     @BeforeMethod
-    public void ensurePreconditions(){
-        if(getBoardsCount()==0){
+    public void ensurePreconditions() {
+//        if(isOnBoardsPage()){
+//            click(By.cssSelector("[href$=boards]"));
+//        }
+        if (getBoardsCount() == 0) {
             createBoard();
         }
     }
 
     @Test
-    public void testChangeNameOfBoard(){
+    public void testChangeNameOfBoard() {
         openFirstPersonalBoard();
         initNameChange();
         returnToHomePage();
     }
 
     @Test
-    public void testChangeBackgroundToPhotos(){
+    public void testChangeBackgroundToPhotos() {
         openFirstPersonalBoard();
         initChangeBackgroundToPhotos();
         clickOnFirstPhoto();
@@ -27,7 +31,7 @@ public class BoardModificationTests extends TestBase {
     }
 
     @Test
-    public void testChangeBackgroundToColors(){
+    public void testChangeBackgroundToColors() {
         openFirstPersonalBoard();
         initChangeBackgroundToColor();
         clickOnChosenColor("[style='background-color: rgb(137, 96, 158);']");
@@ -44,7 +48,7 @@ public class BoardModificationTests extends TestBase {
     }
 
     @Test
-    public void testListDeletion(){
+    public void testListDeletion() {
         openFirstPersonalBoard();
         initListDeletion();
         returnToHomePage();
