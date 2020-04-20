@@ -1,6 +1,5 @@
 package com.qa.trello;
 
-import org.openqa.selenium.By;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -10,48 +9,48 @@ public class BoardModificationTests extends TestBase {
 //        if(isOnBoardsPage()){
 //            click(By.cssSelector("[href$=boards]"));
 //        }
-        if (getBoardsCount() == 0) {
-            createBoard();
+        if (app.getBoardsCount() == 0) {
+            app.createBoard();
         }
     }
 
     @Test
     public void testChangeNameOfBoard() {
-        openFirstPersonalBoard();
-        initNameChange();
-        returnToHomePage();
+        app.openFirstPersonalBoard();
+        app.initNameChange();
+        app.returnToHomePage();
     }
 
     @Test
     public void testChangeBackgroundToPhotos() {
-        openFirstPersonalBoard();
-        initChangeBackgroundToPhotos();
-        clickOnFirstPhoto();
-        returnToHomePage();
+        app.openFirstPersonalBoard();
+        app.initChangeBackgroundToPhotos();
+        app.clickOnFirstPhoto();
+        app.returnToHomePage();
     }
 
     @Test
     public void testChangeBackgroundToColors() {
-        openFirstPersonalBoard();
-        initChangeBackgroundToColor();
-        clickOnChosenColor("[style='background-color: rgb(137, 96, 158);']");
-        returnToHomePage();
+        app.openFirstPersonalBoard();
+        app.initChangeBackgroundToColor();
+        app.clickOnChosenColor("[style='background-color: rgb(137, 96, 158);']");
+        app.returnToHomePage();
     }
 
     @Test
     public void testAddList() {
-        openFirstPersonalBoard();
-        clickOnAddListButton();
-        putNameOfList("NewList");
-        clickOnConfirmButton();
-        returnToHomePage();
+        app.openFirstPersonalBoard();
+        app.clickOnAddListButton();
+        app.putNameOfList("NewList");
+        app.clickOnConfirmButton();
+        app.returnToHomePage();
     }
 
     @Test
     public void testListDeletion() {
-        openFirstPersonalBoard();
-        initListDeletion();
-        returnToHomePage();
+        app.openFirstPersonalBoard();
+        app.initListDeletion();
+        app.returnToHomePage();
     }
 
 }

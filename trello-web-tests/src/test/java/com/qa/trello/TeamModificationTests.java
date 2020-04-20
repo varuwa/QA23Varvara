@@ -6,19 +6,19 @@ import org.testng.annotations.Test;
 public class TeamModificationTests extends TestBase {
     @BeforeMethod
     public void ensurePreconditions() throws InterruptedException {
-        if(getTeamsCount()==0){
-            createTeam();
+        if(app.getTeamsCount()==0){
+            app.createTeam();
         }
     }
 
     @Test
     public void testChangeNameOfTeam(){
-        openFirstTeam();
-        openSettings();
-        editTeamProfile();
-        changeNameOfTeam();
-        confirmNameChange();
-        returnToHomePage();
+        app.openFirstTeam();
+        app.openSettings();
+        app.editTeamProfile();
+        app.changeNameOfTeam();
+        app.confirmNameChange();
+        app.returnToHomePage();
     }
 
 

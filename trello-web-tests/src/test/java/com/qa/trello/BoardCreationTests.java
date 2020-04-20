@@ -7,12 +7,12 @@ public class BoardCreationTests extends TestBase {
 
     @Test
     public void testBoardCreation() {
-        int before = getBoardsCount();
-        initBoardCreation();
-        fillBoardForm("TestNewBoard");
-        confirmBoardCreation();
-        returnToHomePage();
-        int after = getBoardsCount();
+        int before = app.getBoardsCount();
+        app.initBoardCreation();
+        app.fillBoardForm("TestNewBoard");
+        app.confirmBoardCreation();
+        app.returnToHomePage();
+        int after = app.getBoardsCount();
         Assert.assertEquals(after, before+1);
         System.out.println("was: "+ before + " now: " + after);
     }

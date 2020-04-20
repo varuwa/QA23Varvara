@@ -1,6 +1,5 @@
 package com.qa.trello;
 
-import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -11,20 +10,20 @@ public class BoardDeletionTests extends TestBase {
 //        if (isOnBoardsPage()) {
 //            click(By.cssSelector("[href$=boards]"));
 //        }
-        if (getBoardsCount() == 0) {
-            createBoard();
+        if (app.getBoardsCount() == 0) {
+            app.createBoard();
         }
     }
 
     @Test
     public void testBoardDeletion() {
-        int before = getBoardsCount();
-        openFirstPersonalBoard();
-        clickMoreButton();
-        initBoardDeletion();
-        PermanentlyDeleteBoard();
-        returnToHomePage();
-        int after = getBoardsCount();
+        int before = app.getBoardsCount();
+        app.openFirstPersonalBoard();
+        app.clickMoreButton();
+        app.initBoardDeletion();
+        app.PermanentlyDeleteBoard();
+        app.returnToHomePage();
+        int after = app.getBoardsCount();
         Assert.assertEquals(after, before - 1); //проверка, что актуальное соотвествует полученному минус 1
         System.out.println("was: " + before + " now: " + after);
     }

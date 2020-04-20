@@ -9,14 +9,14 @@ public class TeamCreationTests extends TestBase {
 
     @Test
     public void testTeamCreation() throws InterruptedException {
-        int before = getTeamsCount();
-        initTeamCreation();
-        fillForm("TestNewTeam");
-        inviteTeamLater();
-        confirmTeamCreation();
+        int before = app.getTeamsCount();
+        app.initTeamCreation();
+        app.fillForm("TestNewTeam");
+        app.inviteTeamLater();
+        app.confirmTeamCreation();
         Thread.sleep(2000);
-        returnToHomePage();
-        int after = getTeamsCount();
+        app.returnToHomePage();
+        int after = app.getTeamsCount();
         Assert.assertEquals(after, before + 1);
         System.out.println("was: " + before + " now: " + after);
     }
