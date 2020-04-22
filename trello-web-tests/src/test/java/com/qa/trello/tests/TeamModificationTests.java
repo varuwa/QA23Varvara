@@ -1,4 +1,4 @@
-package com.qa.trello;
+package com.qa.trello.tests;
 
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -18,6 +18,15 @@ public class TeamModificationTests extends TestBase {
         app.getTeam().editTeamProfile();
         app.getTeam().changeNameOfTeam();
         app.getTeam().confirmNameChange();
+        app.getTeam().returnToHomePage();
+    }
+
+    @Test
+    public void testCreateTeamBoard() throws InterruptedException {
+        app.getTeam().openFirstTeam();
+        app.getTeam().initBoardOfTeamCreation();
+        app.getTeam().fillBoardTeamForm("NewTeamBoard");
+        app.getTeam().confirmBoardTeamCreation();
         app.getTeam().returnToHomePage();
     }
 

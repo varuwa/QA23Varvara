@@ -1,8 +1,7 @@
-package com.qa.trello;
+package com.qa.trello.tests;
 
-import org.testng.annotations.AfterMethod;
+import com.qa.trello.framework.ApplicationManager;
 import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 
 public class TestBase {

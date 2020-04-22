@@ -1,4 +1,4 @@
-package com.qa.trello;
+package com.qa.trello.framework;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -26,8 +26,8 @@ public class HelperBase {
     }
 
     public void returnToHomePage() {
-        click(By.cssSelector("[class='_2BQG4yPMt5s_hu _2hgn5meZL7bJdx _1ctYJ9-gOV_hrm _3Xj1tqB73NcWn3']"));
-        click(By.cssSelector("[class='_2BQG4yPMt5s_hu _2hgn5meZL7bJdx _1ctYJ9-gOV_hrm _3Xj1tqB73NcWn3']"));
+        click(By.cssSelector("[name='house']"));
+        click(By.cssSelector("[name='house']"));
     }
 
     public void confirm() {

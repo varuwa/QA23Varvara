@@ -1,4 +1,4 @@
-package com.qa.trello;
+package com.qa.trello.tests;
 
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
@@ -19,6 +19,7 @@ public class TeamDeletionTests extends TestBase {
         app.getTeam().openFirstTeam();
         app.getTeam().clickOnSettings();
         app.getTeam().initTeamDeletion();
+        app.getTeam().returnToHomePage();
         int after = app.getTeam().getTeamsCount();
         Assert.assertEquals(after, before - 1);
         System.out.println("was: " + before + " now: " + after);

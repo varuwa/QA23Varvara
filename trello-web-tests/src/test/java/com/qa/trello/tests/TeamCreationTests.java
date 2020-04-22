@@ -1,4 +1,4 @@
-package com.qa.trello;
+package com.qa.trello.tests;
 
 
 import org.testng.Assert;
@@ -14,7 +14,7 @@ public class TeamCreationTests extends TestBase {
         app.getTeam().fillForm("TestNewTeam");
         app.getTeam().inviteTeamLater();
         app.getTeam().confirmTeamCreation();
-        Thread.sleep(2000);
+        Thread.sleep(1000);
         app.getTeam().returnToHomePage();
         int after = app.getTeam().getTeamsCount();
         Assert.assertEquals(after, before + 1);
