@@ -2,6 +2,7 @@ package com.qa.trello.tests;
 
 
 
+import org.openqa.selenium.By;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -11,15 +12,9 @@ public class BoardModificationTests extends TestBase {
         if (app.getBoard().getBoardsCount() == 0) {
             app.getBoard().createBoard();
         }
-    }
-
-    @Test
-    public void testAddList() {
-        app.getBoard().openFirstPersonalBoard();
-        app.getBoard().clickOnAddListButton();
-        app.getBoard().putNameOfList("NewList");
-        app.getBoard().clickOnConfirmButton();
-        app.getBoard().returnToHomePage();
+//        if(!app.getBoard().checkPageUrl("boards")){
+//            app.getBoard().waitForElementLocatedAndClick(By.cssSelector("[href$=boards]"), 20);
+//        }
     }
 
     @Test
@@ -50,9 +45,18 @@ public class BoardModificationTests extends TestBase {
     }
 
     @Test
-    public void testListDeletion() throws InterruptedException {
+    public void testAddList() {
         app.getBoard().openFirstPersonalBoard();
-        app.getBoard().isListPresent();
+        app.getBoard().clickOnAddListButton();
+        app.getBoard().putNameOfList("NewList");
+        app.getBoard().clickOnConfirmButton();
+        app.getBoard().returnToHomePage();
+    }
+
+    @Test
+    public void testListDeletion(){
+        app.getBoard().openFirstPersonalBoard();
+       // app.getBoard().isListPresent();
         app.getBoard().initListDeletion();
         app.getBoard().returnToHomePage();
     }

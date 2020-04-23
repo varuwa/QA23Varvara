@@ -1,5 +1,6 @@
 package com.qa.trello.tests;
 
+import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -7,8 +8,8 @@ import org.testng.annotations.Test;
 public class BoardDeletionTests extends TestBase {
     @BeforeMethod
     public void ensurePreconditions() {
-//        if (isOnBoardsPage()) {
-//            click(By.cssSelector("[href$=boards]"));
+//        if(!app.getBoard().checkPageUrl("boards")){
+//            app.getBoard().waitForElementLocatedAndClick(By.cssSelector("[href$=boards]"), 20);
 //        }
         if (app.getBoard().getBoardsCount() == 0) {
             app.getBoard().createBoard();

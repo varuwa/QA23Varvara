@@ -15,13 +15,13 @@ public class SessionHelper extends HelperBase{
         confirmLogin();
     }
     public void initLogin() {
-        click(By.cssSelector("[href='/login']"));
+        waitForElementLocatedAndClick(By.cssSelector("[href='/login']"), 20);
     }
     public void fillLoginForm(String userEmail, String password) {
         type(By.name("user"), userEmail);
         type(By.name("password"), password);
     }
     public void confirmLogin() {
-        click(By.id("login"));
+        waitForElementLocatedAndClick(By.id("login"), 20);
     }
 }

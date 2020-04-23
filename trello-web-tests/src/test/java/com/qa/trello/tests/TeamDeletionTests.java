@@ -1,5 +1,6 @@
 package com.qa.trello.tests;
 
+
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -11,6 +12,9 @@ public class TeamDeletionTests extends TestBase {
         if(app.getTeam().getTeamsCount()==0){
             app.getTeam().createTeam();
         }
+//        if(!app.getBoard().checkPageUrl("boards")){
+//            app.getBoard().waitForElementLocatedAndClick(By.cssSelector("[href$=boards]"), 20);
+//        }
     }
 
     @Test

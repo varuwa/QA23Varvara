@@ -14,39 +14,39 @@ public class TeamHelper extends HelperBase {
     }
 
     public void openFirstTeam() {
-        click(By.xpath("//*[@class='_mtkwfAlvk6O3f']/../../..//li"));
+        waitForElementClickableAndClick(By.xpath("//*[@class='_mtkwfAlvk6O3f']/../../..//li"), 20);
     }
 
     //TeamCreation
     public void initTeamCreation() {
-        click(By.cssSelector("[class='icon-add icon-sm _2aV_KY1gTq1qWc']"));
+        waitForElementLocatedAndClick(By.cssSelector("[class='icon-add icon-sm _2aV_KY1gTq1qWc']"), 20);
     }
 
     public void fillForm(String nameOfTeam) {
         type(By.cssSelector("[class='_1CLyNodCAa-vQi']"), nameOfTeam);
-        click(By.id("teamTypeSelect"));
-        click(By.cssSelector("[class='_38pq5NbRWAG39y']")); //"[data-test-id^=header-create-team-type-input] li"
+        waitForElementLocatedAndClick(By.id("teamTypeSelect"), 20);
+        waitForElementLocatedAndClick(By.cssSelector("[class='_38pq5NbRWAG39y']"), 20); //"[data-test-id^=header-create-team-type-input] li"
     }
 
     public void confirmTeamCreation() {
-        click(By.cssSelector("[type='submit']"));
-        click(By.cssSelector("[class='eg0KI5SqghoOFd']"));
+        waitForElementLocatedAndClick(By.cssSelector("[type='submit']"), 20);
+        waitForElementLocatedAndClick(By.cssSelector("[class='eg0KI5SqghoOFd']"), 20);
     }
 
     public void inviteTeamLater() {
         if (isElementPresent(By.cssSelector("[data-test-id=show-later-button]"))) { //если тру кликни
-            click(By.cssSelector("[data-test-id=show-later-button]"));
+            waitForElementLocatedAndClick(By.cssSelector("[data-test-id=show-later-button]"), 20);
         }
     }
 
 
     //Team Deletion
     public void clickOnSettings() {
-        click(By.cssSelector(".icon-gear"));
+        waitForElementLocatedAndClick(By.cssSelector(".icon-gear"), 20);
     }
 
     public void initTeamDeletion() {
-        click(By.cssSelector(".quiet-button"));
+        waitForElementLocatedAndClick(By.cssSelector(".quiet-button"), 20);
         confirm();
     }
 
@@ -56,16 +56,16 @@ public class TeamHelper extends HelperBase {
     }
 
     public void editTeamProfile() {
-        click(By.cssSelector("[name='edit']"));
+        waitForElementClickableAndClick(By.cssSelector("[name='edit']"), 20);
     }
 
     public void openSettings() {
-        click(By.cssSelector(".icon-gear"));
+        waitForElementLocatedAndClick(By.cssSelector(".icon-gear"), 20);
     }
 
     //testChangeNameOfTeam
     public void confirmNameChange() {
-        click(By.cssSelector("[type='submit']"));
+        waitForElementLocatedAndClick(By.cssSelector("[type='submit']"), 20);
     }
 
     public void createTeam() throws InterruptedException {
@@ -79,7 +79,7 @@ public class TeamHelper extends HelperBase {
     //testCreateTeamBoard
     public void initBoardOfTeamCreation() throws InterruptedException {
         Thread.sleep(1000);
-        click(By.cssSelector(".mod-add"));
+        waitForElementLocatedAndClick(By.cssSelector(".mod-add"), 20);
     }
 
     public void fillBoardTeamForm(String nameOfBoardTeam) {
@@ -88,7 +88,7 @@ public class TeamHelper extends HelperBase {
     }
 
     public void confirmBoardTeamCreation() throws InterruptedException {
-        click(By.cssSelector("[class='button primary']"));
+        waitForElementLocatedAndClick(By.cssSelector("[class='button primary']"), 20);
         Thread.sleep(5000);
     }
 

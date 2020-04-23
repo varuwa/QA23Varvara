@@ -16,63 +16,63 @@ public class BoardHelper extends HelperBase {
     }
     public void openMenu(){
         if(isElementPresent(By.cssSelector("[class='board-menu js-fill-board-menu hide']"))){
-            click(By.cssSelector(".js-show-sidebar"));
+            waitForElementLocatedAndClick(By.cssSelector(".js-show-sidebar"), 20);
         }
     }
 
     public void closeBoardMenu(){
-        click(By.cssSelector(".js-hide-sidebar"));
+        waitForElementLocatedAndClick(By.cssSelector(".js-hide-sidebar"), 20);
     }
 
     //Board Creation
     public void initBoardCreation() {
-        click(By.name("add"));
-        click(By.cssSelector("[data-test-id='header-create-board-button']"));
+        waitForElementLocatedAndClick(By.name("add"), 20);
+        waitForElementLocatedAndClick(By.cssSelector("[data-test-id='header-create-board-button']"), 20);
     }
     public void fillBoardForm(String nameOfBoard) {
         type(By.cssSelector("[data-test-id='create-board-title-input']"), nameOfBoard);
-        click(By.cssSelector("._1vk4y48RR5OmqE"));
-        click(By.cssSelector("._1uK2vQ_aMRS2NU")); // //li[1]/button[@class='_2jR0BZMM5cBReR']
+        waitForElementLocatedAndClick(By.cssSelector("._1vk4y48RR5OmqE"), 20);
+        waitForElementLocatedAndClick(By.cssSelector("._1uK2vQ_aMRS2NU"), 20); // //li[1]/button[@class='_2jR0BZMM5cBReR']
     }
     public void confirmBoardCreation() {
-        click(By.cssSelector("[class='_3UeOvlU6B5KUnS uj9Ovoj4USRUQz _2MgouXHqRQDP_5']"));
+        waitForElementLocatedAndClick(By.cssSelector("[class='_3UeOvlU6B5KUnS uj9Ovoj4USRUQz _2MgouXHqRQDP_5']"), 20);
     }
 
     //Board Deletion
     public void openFirstPersonalBoard() {
-        click(By.xpath("//*[@class='icon-lg icon-member']/../../..//li"));
+        waitForElementClickableAndClick(By.xpath("//*[@class='icon-lg icon-member']/../../..//li"), 40);
     }
     public void clickMoreButton() {
-        click(By.cssSelector(".js-open-more"));
+        waitForElementLocatedAndClick(By.cssSelector(".js-open-more"), 30);
     }
     public void initBoardDeletion() {
         clickOnCloseBoardInMoreMenu();
         confirm();
     }
     public void clickOnCloseBoardInMoreMenu() {
-        click(By.cssSelector(".js-close-board"));
+        waitForElementLocatedAndClick(By.cssSelector(".js-close-board"), 20);
     }
     public void PermanentlyDeleteBoard() {
-        click(By.cssSelector(".js-delete"));
+        waitForElementLocatedAndClick(By.cssSelector(".js-delete"), 20);
         confirm();
     }
 
     //testChangeBackgroundToPhotos
     public void initChangeBackgroundToPhotos() {
-        click(By.cssSelector(".js-change-background"));
-        click(By.cssSelector("[class='board-backgrounds-section-tile board-backgrounds-photos-tile js-bg-photos']"));
+        waitForElementLocatedAndClick(By.cssSelector(".js-change-background"), 20);
+        waitForElementLocatedAndClick(By.cssSelector("[class='board-backgrounds-section-tile board-backgrounds-photos-tile js-bg-photos']"), 20);
     }
     public void clickOnFirstPhoto() {
-        click(By.cssSelector(".background-box"));
+        waitForElementClickableAndClick(By.cssSelector(".background-box"), 20);
     }
 
     //testChangeBackgroundToColors
     public void initChangeBackgroundToColor() {
-        click(By.cssSelector(".js-change-background"));
-        click(By.cssSelector(".js-bg-colors"));
+        waitForElementLocatedAndClick(By.cssSelector(".js-change-background"), 20);
+        waitForElementLocatedAndClick(By.cssSelector(".js-bg-colors"), 20);
     }
     public void clickOnChosenColor(String chosenColor) {
-        click(By.cssSelector(chosenColor));
+        waitForElementLocatedAndClick(By.cssSelector(chosenColor), 20);
     }
 
     //testChangeNameOfBoard
@@ -83,27 +83,26 @@ public class BoardHelper extends HelperBase {
 
     //testAddList
     public void clickOnAddListButton() {
-        click(By.cssSelector(".placeholder"));
+        waitForElementLocatedAndClick(By.cssSelector(".placeholder"), 20);
     }
     public void putNameOfList(String nameOfList) {
         type(By.cssSelector(".list-name-input"), nameOfList);
     }
     public void clickOnConfirmButton() {
-        click(By.cssSelector(".js-save-edit"));
+        waitForElementLocatedAndClick(By.cssSelector(".js-save-edit"), 20);
     }
 
     //testListDeletion
-    public void isListPresent() throws InterruptedException {
-        if(!isElementPresent(By.cssSelector(".js-list-content"))){
-            clickOnAddListButton();
-            putNameOfList("NewList");
-            clickOnConfirmButton();;
-        }
-        Thread.sleep(2000);
-    }
+//    public void isListPresent(){
+//        if(!isElementPresent(By.cssSelector(".js-list-content"))){
+//            clickOnAddListButton();
+//            putNameOfList("NewList");
+//            clickOnConfirmButton();;
+//        }
+//    }
     public void initListDeletion() {
-        click(By.cssSelector(".js-open-list-menu"));
-        click(By.cssSelector(".js-close-list"));
+        waitForElementLocatedAndClick(By.cssSelector(".js-open-list-menu"), 20);
+        waitForElementLocatedAndClick(By.cssSelector(".js-close-list"), 20);
     }
 
 
