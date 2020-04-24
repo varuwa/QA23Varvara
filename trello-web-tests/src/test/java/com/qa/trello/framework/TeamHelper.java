@@ -14,8 +14,9 @@ public class TeamHelper extends HelperBase {
     }
 
     public void openFirstTeam() {
-        waitForElementClickableAndClick(By.xpath("//*[@class='_mtkwfAlvk6O3f']/../../..//li"), 20);
+        click(By.xpath("//*[@class='_mtkwfAlvk6O3f']/../../..//li"));
     }
+
 
     //TeamCreation
     public void initTeamCreation() {
@@ -35,14 +36,14 @@ public class TeamHelper extends HelperBase {
 
     public void inviteTeamLater() {
         if (isElementPresent(By.cssSelector("[data-test-id=show-later-button]"))) { //если тру кликни
-            waitForElementLocatedAndClick(By.cssSelector("[data-test-id=show-later-button]"), 20);
+            click(By.cssSelector("[data-test-id=show-later-button]"));
         }
     }
 
 
     //Team Deletion
     public void clickOnSettings() {
-        waitForElementLocatedAndClick(By.cssSelector(".icon-gear"), 20);
+        click(By.cssSelector(".icon-gear"));
     }
 
     public void initTeamDeletion() {
@@ -60,7 +61,7 @@ public class TeamHelper extends HelperBase {
     }
 
     public void openSettings() {
-        waitForElementLocatedAndClick(By.cssSelector(".icon-gear"), 20);
+        waitForElementLocatedAndClick(By.cssSelector("[class='icon-gear icon-sm _2aV_KY1gTq1qWc']"), 20);
     }
 
     //testChangeNameOfTeam

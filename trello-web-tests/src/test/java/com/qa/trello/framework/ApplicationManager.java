@@ -1,9 +1,12 @@
 package com.qa.trello.framework;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.BrowserType;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.concurrent.TimeUnit;
 
@@ -32,6 +35,7 @@ public class ApplicationManager {
 
         session = new SessionHelper(wd);
         session.login("varuwa@gmail.com", "trellobarbara");
+        new WebDriverWait(wd, 20).until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("[data-test-id=header-member-menu-button]")));
 
         board = new BoardHelper(wd);
         team = new TeamHelper(wd);

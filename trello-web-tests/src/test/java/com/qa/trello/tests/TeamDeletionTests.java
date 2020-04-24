@@ -9,13 +9,13 @@ public class TeamDeletionTests extends TestBase {
 
     @BeforeMethod
     public void ensurePreconditions() throws InterruptedException {
-        if(app.getTeam().getTeamsCount()==0){
+        if (app.getTeam().getTeamsCount() == 0) {
             app.getTeam().createTeam();
         }
-        if(!app.getBoard().isOnBoardsPage()){
-                app.getBoard().goToBoardsPageUrl("varuwa");
-            }
+        if (!app.getBoard().isOnBoardsPage()) {
+            app.getBoard().goToBoardsPageUrl("varuwa");
         }
+    }
 
     @Test
     public void testTeamDeletion() {
@@ -27,5 +27,24 @@ public class TeamDeletionTests extends TestBase {
         int after = app.getTeam().getTeamsCount();
         Assert.assertEquals(after, before - 1);
         System.out.println("was: " + before + " now: " + after);
+    }
+
+    @Test(enabled = false)
+    public void test2TeamDeletion() {
+        int before = app.getTeam().getTeamsCount();
+        int count = 1;
+        do {
+            app.getTeam().openFirstTeam();
+            app.getTeam().clickOnSettings();
+            app.getTeam().initTeamDeletion();
+            app.getTeam().returnToHomePage();
+            count++;
+        }
+        while (count < 3);
+
+        int after = app.getTeam().getTeamsCount();
+        Assert.assertEquals(after, before - 2);
+        System.out.println("was: " + before + " now: " + after);
+
     }
 }

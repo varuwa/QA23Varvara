@@ -13,14 +13,17 @@ public class HelperBase {
         this.wd = wd;
     }
 
+    public void click(By locator) {
+        wd.findElement(locator).click();
+    }
+
     public void waitForElementLocatedAndClick(By locator, int timeOut) {
 
         new WebDriverWait (wd, timeOut).until(ExpectedConditions.presenceOfElementLocated(locator)).click();
-//        wd.findElement(locator).click();
+
     }
 
     public void waitForElementClickableAndClick(By locator, int timeOut) {
-
         new WebDriverWait (wd, timeOut).until(ExpectedConditions.elementToBeClickable(locator)).click();
 //        wd.findElement(locator).click();
     }
@@ -34,10 +37,6 @@ public class HelperBase {
     public boolean checkPageUrl(String pageName){
         return new WebDriverWait(wd, 20).until(ExpectedConditions.urlContains(pageName));
     }
-
-
-
-
 
     public boolean isElementPresent(By locator) {
         return wd.findElements(locator).size() > 0; //тру или фолс, элемент есть или нет

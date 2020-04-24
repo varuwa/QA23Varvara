@@ -48,10 +48,11 @@ public class BoardHelper extends HelperBase {
 
     //Board Deletion
     public void openFirstPersonalBoard() {
-        waitForElementClickableAndClick(By.xpath("//*[@class='icon-lg icon-member']/../../..//li"), 40);
+        waitForElementLocatedAndClick(By.xpath("//*[@class='icon-lg icon-member']/../../..//li"), 40);
     }
     public void clickMoreButton() {
-        waitForElementLocatedAndClick(By.cssSelector(".js-open-more"), 30);
+        //waitForElementClickableAndClick(By.cssSelector(".js-show-sidebar"),20);
+        click(By.cssSelector(".js-open-more"));
     }
     public void initBoardDeletion() {
         clickOnCloseBoardInMoreMenu();

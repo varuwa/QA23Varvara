@@ -20,8 +20,8 @@ public class TeamCreationTests extends TestBase {
         int before = app.getTeam().getTeamsCount();
         app.getTeam().initTeamCreation();
         app.getTeam().fillForm("TestNewTeam");
-        app.getTeam().inviteTeamLater();
         app.getTeam().confirmTeamCreation();
+        app.getTeam().inviteTeamLater();
         app.getTeam().returnToHomePage();
         int after = app.getTeam().getTeamsCount();
         Assert.assertEquals(after, before + 1);
