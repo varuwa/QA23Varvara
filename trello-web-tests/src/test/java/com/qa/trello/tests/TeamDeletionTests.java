@@ -12,10 +12,10 @@ public class TeamDeletionTests extends TestBase {
         if(app.getTeam().getTeamsCount()==0){
             app.getTeam().createTeam();
         }
-//        if(!app.getBoard().checkPageUrl("boards")){
-//            app.getBoard().waitForElementLocatedAndClick(By.cssSelector("[href$=boards]"), 20);
-//        }
-    }
+        if(!app.getBoard().isOnBoardsPage()){
+                app.getBoard().goToBoardsPageUrl("varuwa");
+            }
+        }
 
     @Test
     public void testTeamDeletion() {

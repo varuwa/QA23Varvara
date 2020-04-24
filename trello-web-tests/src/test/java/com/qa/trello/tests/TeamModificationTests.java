@@ -5,15 +5,16 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class TeamModificationTests extends TestBase {
+
     @BeforeMethod
     public void ensurePreconditions() throws InterruptedException {
         if(app.getTeam().getTeamsCount()==0){
             app.getTeam().createTeam();
         }
-//        if(!app.getBoard().checkPageUrl("boards")){
-//            app.getBoard().waitForElementLocatedAndClick(By.cssSelector("[href$=boards]"), 20);
-//        }
-    }
+        if(!app.getBoard().isOnBoardsPage()){
+                app.getBoard().goToBoardsPageUrl("varuwa");
+            }
+        }
 
     @Test
     public void testChangeNameOfTeam(){

@@ -24,6 +24,14 @@ public class BoardHelper extends HelperBase {
         waitForElementLocatedAndClick(By.cssSelector(".js-hide-sidebar"), 20);
     }
 
+    public boolean isOnBoardsPage() {
+        String url = wd.getCurrentUrl();
+        return url.contains("boards");
+    }
+    public void goToBoardsPageUrl(String username){
+        wd.navigate().to("https://trello.com/"+username+"/boards");
+    }
+
     //Board Creation
     public void initBoardCreation() {
         waitForElementLocatedAndClick(By.name("add"), 20);
@@ -57,15 +65,6 @@ public class BoardHelper extends HelperBase {
         confirm();
     }
 
-    //testChangeBackgroundToPhotos
-    public void initChangeBackgroundToPhotos() {
-        waitForElementLocatedAndClick(By.cssSelector(".js-change-background"), 20);
-        waitForElementLocatedAndClick(By.cssSelector("[class='board-backgrounds-section-tile board-backgrounds-photos-tile js-bg-photos']"), 20);
-    }
-    public void clickOnFirstPhoto() {
-        waitForElementClickableAndClick(By.cssSelector(".background-box"), 20);
-    }
-
     //testChangeBackgroundToColors
     public void initChangeBackgroundToColor() {
         waitForElementLocatedAndClick(By.cssSelector(".js-change-background"), 20);
@@ -93,15 +92,16 @@ public class BoardHelper extends HelperBase {
     }
 
     //testListDeletion
-//    public void isListPresent(){
-//        if(!isElementPresent(By.cssSelector(".js-list-content"))){
-//            clickOnAddListButton();
-//            putNameOfList("NewList");
-//            clickOnConfirmButton();;
-//        }
-//    }
+    public void isListPresent() throws InterruptedException {
+        if(!isElementPresent(By.cssSelector(".js-list-content"))){
+            clickOnAddListButton();
+            putNameOfList("NewList");
+            clickOnConfirmButton();;
+            Thread.sleep(2000);
+        }
+    }
     public void initListDeletion() {
-        waitForElementLocatedAndClick(By.cssSelector(".js-open-list-menu"), 20);
+        waitForElementLocatedAndClick(By.cssSelector(".list-header-extras-menu"), 20);
         waitForElementLocatedAndClick(By.cssSelector(".js-close-list"), 20);
     }
 

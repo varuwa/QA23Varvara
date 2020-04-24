@@ -2,10 +2,18 @@ package com.qa.trello.tests;
 
 
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 
 public class TeamCreationTests extends TestBase {
+
+    @BeforeMethod
+    public void ensurePreconditions() {
+        if(!app.getBoard().isOnBoardsPage()){
+            app.getBoard().goToBoardsPageUrl("varuwa");
+        }
+    }
 
     @Test
     public void testTeamCreation(){

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module external.linked.project.id="trello-web-tests" external.linked.project.path="$MODULE_DIR$/../../trello-web-tests" external.root.project.path="$MODULE_DIR$/../../trello-web-tests" external.system.id="GRADLE" external.system.module.group="Varvara" external.system.module.version="1.0-SNAPSHOT" type="JAVA_MODULE" version="4">
-  <component name="ExternalSystem" externalSystem="GRADLE" externalSystemModuleGroup="Varvara" externalSystemModuleVersion="1.0-SNAPSHOT" linkedProjectId="trello-web-tests" linkedProjectPath="$MODULE_DIR$/../../trello-web-tests" rootProjectPath="$MODULE_DIR$/../../trello-web-tests" />
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
     <content url="file://$MODULE_DIR$/../../trello-web-tests">
