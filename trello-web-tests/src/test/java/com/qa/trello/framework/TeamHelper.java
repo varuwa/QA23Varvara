@@ -57,11 +57,11 @@ public class TeamHelper extends HelperBase {
     }
 
     public void editTeamProfile() {
-        waitForElementClickableAndClick(By.cssSelector("[name='edit']"), 20);
+        waitForElementLocatedAndClick(By.cssSelector("[name='edit']"), 20);
     }
 
     public void openSettings() {
-        waitForElementLocatedAndClick(By.cssSelector("[class='icon-gear icon-sm _2aV_KY1gTq1qWc']"), 20);
+        waitForElementLocatedAndClick(By.cssSelector("[class='icon-gear icon-sm _2aV_KY1gTq1qWc']"), 30);
     }
 
     //testChangeNameOfTeam
