@@ -1,8 +1,12 @@
 package com.qa.trello.framework;
 
+import com.qa.trello.model.Board;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BoardHelper extends HelperBase {
 
@@ -37,8 +41,8 @@ public class BoardHelper extends HelperBase {
         waitForElementLocatedAndClick(By.name("add"), 20);
         waitForElementLocatedAndClick(By.cssSelector("[data-test-id='header-create-board-button']"), 20);
     }
-    public void fillBoardForm(String nameOfBoard) {
-        type(By.cssSelector("[data-test-id='create-board-title-input']"), nameOfBoard);
+    public void fillBoardForm(Board board) {
+        type(By.cssSelector("[data-test-id='create-board-title-input']"), board.getName());
         waitForElementLocatedAndClick(By.cssSelector("._1vk4y48RR5OmqE"), 20);
         waitForElementLocatedAndClick(By.cssSelector("._1uK2vQ_aMRS2NU"), 20); // //li[1]/button[@class='_2jR0BZMM5cBReR']
     }
@@ -51,9 +55,13 @@ public class BoardHelper extends HelperBase {
         waitForElementLocatedAndClick(By.xpath("//*[@class='icon-lg icon-member']/../../..//li"), 40);
     }
     public void clickMoreButton() {
-        //waitForElementClickableAndClick(By.cssSelector(".js-show-sidebar"),20);
-        click(By.cssSelector(".js-open-more"));
+        WebElement moreButton = new WebDriverWait(wd, 30).until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(".js-open-more")));
+        if(!moreButton.isDisplayed()) {
+            wd.findElement(By.cssSelector(".board-header-btn.mod-show-menu.js-show-sidebar")).click();
+        }
+        wd.findElement(By.cssSelector(".js-open-more")).click();
     }
+
     public void initBoardDeletion() {
         clickOnCloseBoardInMoreMenu();
         confirm();
@@ -83,22 +91,22 @@ public class BoardHelper extends HelperBase {
 
     //testAddList
     public void clickOnAddListButton() {
-        waitForElementLocatedAndClick(By.cssSelector(".placeholder"), 20);
+        waitForElementClickableAndClick(By.cssSelector(".placeholder"),20);
     }
     public void putNameOfList(String nameOfList) {
         type(By.cssSelector(".list-name-input"), nameOfList);
     }
+
     public void clickOnConfirmButton() {
         waitForElementLocatedAndClick(By.cssSelector(".js-save-edit"), 20);
     }
 
     //testListDeletion
-    public void isListPresent() throws InterruptedException {
+    public void isListPresent(){
         if(!isElementPresent(By.cssSelector(".js-list-content"))){
             clickOnAddListButton();
             putNameOfList("NewList");
             clickOnConfirmButton();;
-            Thread.sleep(2000);
         }
     }
     public void initListDeletion() {
@@ -109,7 +117,7 @@ public class BoardHelper extends HelperBase {
 
     public void createBoard() {
         initBoardCreation();
-        fillBoardForm("TestNewBoard");
+        fillBoardForm(new Board().withName("TestNewBoard"));
         confirmBoardCreation();
         returnToHomePage();
     }

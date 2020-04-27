@@ -18,14 +18,13 @@ public class HelperBase {
     }
 
     public void waitForElementLocatedAndClick(By locator, int timeOut) {
-
         new WebDriverWait (wd, timeOut).until(ExpectedConditions.presenceOfElementLocated(locator)).click();
 
     }
 
     public void waitForElementClickableAndClick(By locator, int timeOut) {
         new WebDriverWait (wd, timeOut).until(ExpectedConditions.elementToBeClickable(locator)).click();
-//        wd.findElement(locator).click();
+
     }
 
     public void type(By locator, String text) {
@@ -43,7 +42,8 @@ public class HelperBase {
     }
 
     public void returnToHomePage() {
-        waitForElementClickableAndClick(By.cssSelector("[name='house']"), 20);
+//        click(By.cssSelector("[name='house']"));
+        click(By.xpath("//*[@name='house']/.."));
     }
 
     public void confirm() {

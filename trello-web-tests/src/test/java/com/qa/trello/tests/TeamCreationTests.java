@@ -23,6 +23,7 @@ public class TeamCreationTests extends TestBase {
         app.getTeam().confirmTeamCreation();
         app.getTeam().inviteTeamLater();
         app.getTeam().returnToHomePage();
+
         int after = app.getTeam().getTeamsCount();
         Assert.assertEquals(after, before + 1);
         System.out.println("was: " + before + " now: " + after);

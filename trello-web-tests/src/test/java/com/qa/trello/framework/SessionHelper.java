@@ -18,6 +18,7 @@ public class SessionHelper extends HelperBase{
     public void initLogin() {
         waitForElementLocatedAndClick(By.cssSelector("[href='/login']"), 20);
     }
+
     public void fillLoginForm(String userEmail, String password) {
         type(By.name("user"), userEmail);
         type(By.name("password"), password);

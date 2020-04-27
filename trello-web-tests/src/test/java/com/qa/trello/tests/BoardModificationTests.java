@@ -41,7 +41,7 @@ public class BoardModificationTests extends TestBase {
     }
 
     @Test
-    public void testListDeletion() throws InterruptedException {
+    public void testListDeletion() {
         app.getBoard().openFirstPersonalBoard();
         app.getBoard().isListPresent();
         app.getBoard().initListDeletion();

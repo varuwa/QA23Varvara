@@ -17,10 +17,30 @@ dependencies {
 }
 
 test{
-    useTestNG();
+    useTestNG(){
+        suites 'src/test/resources/testng.xml'
+    }
         if(project.hasProperty('browser')){
             systemProperty 'browser', "${browser}"
         }
+}
+
+task testBoards(type: Test){
+    useTestNG(){
+        suites 'src/test/resources/testng-boards.xml'
+    }
+    if(project.hasProperty('browser')){
+        systemProperty 'browser', "${browser}"
+    }
+}
+
+task testTeams(type: Test){
+    useTestNG(){
+        suites 'src/test/resources/testng-teams.xml'
+    }
+    if(project.hasProperty('browser')){
+        systemProperty 'browser', "${browser}"
+    }
 }
 
 tasks.withType(JavaCompile) {

@@ -15,6 +15,7 @@ public class TeamHelper extends HelperBase {
 
     public void openFirstTeam() {
         click(By.xpath("//*[@class='_mtkwfAlvk6O3f']/../../..//li"));
+
     }
 
 
@@ -25,13 +26,13 @@ public class TeamHelper extends HelperBase {
 
     public void fillForm(String nameOfTeam) {
         type(By.cssSelector("[class='_1CLyNodCAa-vQi']"), nameOfTeam);
-        waitForElementLocatedAndClick(By.id("teamTypeSelect"), 20);
-        waitForElementLocatedAndClick(By.cssSelector("[class='_38pq5NbRWAG39y']"), 20); //"[data-test-id^=header-create-team-type-input] li"
+        click(By.id("teamTypeSelect"));
+        click(By.cssSelector("[class='_38pq5NbRWAG39y']")); //"[data-test-id^=header-create-team-type-input] li"
     }
 
     public void confirmTeamCreation() {
-        waitForElementLocatedAndClick(By.cssSelector("[type='submit']"), 20);
-        waitForElementLocatedAndClick(By.cssSelector("[class='eg0KI5SqghoOFd']"), 20);
+        click(By.cssSelector("[type='submit']"));
+        click(By.cssSelector("[class='eg0KI5SqghoOFd']"));
     }
 
     public void inviteTeamLater() {
@@ -88,9 +89,8 @@ public class TeamHelper extends HelperBase {
 
     }
 
-    public void confirmBoardTeamCreation() throws InterruptedException {
-        waitForElementLocatedAndClick(By.cssSelector("[class='button primary']"), 20);
-        Thread.sleep(5000);
+    public void confirmBoardTeamCreation(){
+        waitForElementClickableAndClick(By.cssSelector("[class='button primary']"), 20);
     }
 
 }
