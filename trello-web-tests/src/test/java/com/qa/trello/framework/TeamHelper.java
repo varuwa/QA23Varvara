@@ -1,5 +1,6 @@
 package com.qa.trello.framework;
 
+import com.qa.trello.model.Team;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -24,8 +25,8 @@ public class TeamHelper extends HelperBase {
         waitForElementLocatedAndClick(By.cssSelector("[class='icon-add icon-sm _2aV_KY1gTq1qWc']"), 20);
     }
 
-    public void fillForm(String nameOfTeam) {
-        type(By.cssSelector("[class='_1CLyNodCAa-vQi']"), nameOfTeam);
+    public void fillForm(Team team) {
+        type(By.cssSelector("[class='_1CLyNodCAa-vQi']"), team.getName());
         click(By.id("teamTypeSelect"));
         click(By.cssSelector("[class='_38pq5NbRWAG39y']")); //"[data-test-id^=header-create-team-type-input] li"
     }
@@ -72,7 +73,7 @@ public class TeamHelper extends HelperBase {
 
     public void createTeam() throws InterruptedException {
         initTeamCreation();
-        fillForm("TestNewTeam");
+        fillForm(new Team().withName("NewTeam"));
         confirmTeamCreation();
         Thread.sleep(2000);
         returnToHomePage();
@@ -90,7 +91,7 @@ public class TeamHelper extends HelperBase {
     }
 
     public void confirmBoardTeamCreation(){
-        waitForElementClickableAndClick(By.cssSelector("[class='button primary']"), 20);
+        click(By.cssSelector("[class='button primary']"));
     }
 
 }

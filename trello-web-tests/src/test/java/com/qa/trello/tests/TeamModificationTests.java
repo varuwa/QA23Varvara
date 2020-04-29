@@ -31,6 +31,7 @@ public class TeamModificationTests extends TestBase {
         app.getTeam().initBoardOfTeamCreation();
         app.getTeam().fillBoardTeamForm("NewTeamBoard");
         app.getTeam().confirmBoardTeamCreation();
+        Thread.sleep(2000);
         app.getTeam().returnToHomePage();
     }
 

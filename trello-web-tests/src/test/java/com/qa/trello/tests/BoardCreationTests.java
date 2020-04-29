@@ -20,7 +20,7 @@ public class BoardCreationTests extends TestBase {
     public void testBoardCreation() {
         int before = app.getBoard().getBoardsCount();
         app.getBoard().initBoardCreation();
-        app.getBoard().fillBoardForm(new Board().withName("Board" + System.currentTimeMillis()));
+        app.getBoard().fillBoardForm(new Board().withName("Board" + System.currentTimeMillis()).withColor("green"));
         app.getBoard().confirmBoardCreation();
         app.getBoard().returnToHomePage();
         int after = app.getBoard().getBoardsCount();

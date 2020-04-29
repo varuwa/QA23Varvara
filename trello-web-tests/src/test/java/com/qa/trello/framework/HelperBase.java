@@ -42,11 +42,11 @@ public class HelperBase {
     }
 
     public void returnToHomePage() {
-//        click(By.cssSelector("[name='house']"));
+        click(By.cssSelector("[name='house']"));
         click(By.xpath("//*[@name='house']/.."));
     }
 
     public void confirm() {
-        waitForElementLocatedAndClick(By.cssSelector(".js-confirm"), 20);
+        click(By.cssSelector(".js-confirm"));
     }
 }

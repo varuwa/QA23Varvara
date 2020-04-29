@@ -32,7 +32,7 @@ public class BoardDeletionTests extends TestBase {
     @Test(enabled = false)
     public void test3BoardsDeletion() {
         int before = app.getBoard().getBoardsCount();
-        int count = 1;
+        int count = 0;
         do {
         app.getBoard().openFirstPersonalBoard();
         app.getBoard().clickMoreButton();
@@ -41,7 +41,7 @@ public class BoardDeletionTests extends TestBase {
         app.getBoard().returnToHomePage();
         count++;
         }
-        while(count< 4);
+        while(count< 3);
 
         int after = app.getBoard().getBoardsCount();
         Assert.assertEquals(after, before - 3); //проверка, что актуальное соотвествует полученному минус 1

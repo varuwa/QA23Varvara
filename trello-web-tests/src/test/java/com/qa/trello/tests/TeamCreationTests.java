@@ -1,6 +1,7 @@
 package com.qa.trello.tests;
 
 
+import com.qa.trello.model.Team;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -19,7 +20,7 @@ public class TeamCreationTests extends TestBase {
     public void testTeamCreation(){
         int before = app.getTeam().getTeamsCount();
         app.getTeam().initTeamCreation();
-        app.getTeam().fillForm("TestNewTeam");
+        app.getTeam().fillForm(new Team().withName("NewTeam" + before++));
         app.getTeam().confirmTeamCreation();
         app.getTeam().inviteTeamLater();
         app.getTeam().returnToHomePage();

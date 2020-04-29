@@ -36,7 +36,6 @@ public class BoardModificationTests extends TestBase {
         app.getBoard().openFirstPersonalBoard();
         app.getBoard().clickOnAddListButton();
         app.getBoard().putNameOfList("NewList");
-        app.getBoard().clickOnConfirmButton();
         app.getBoard().returnToHomePage();
     }
 

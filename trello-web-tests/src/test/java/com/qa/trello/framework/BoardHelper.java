@@ -45,21 +45,24 @@ public class BoardHelper extends HelperBase {
         type(By.cssSelector("[data-test-id='create-board-title-input']"), board.getName());
         waitForElementLocatedAndClick(By.cssSelector("._1vk4y48RR5OmqE"), 20);
         waitForElementLocatedAndClick(By.cssSelector("._1uK2vQ_aMRS2NU"), 20); // //li[1]/button[@class='_2jR0BZMM5cBReR']
+        click(By.cssSelector("[title='" + board.getColor() + "']"));
     }
+
     public void confirmBoardCreation() {
         waitForElementLocatedAndClick(By.cssSelector("[class='_3UeOvlU6B5KUnS uj9Ovoj4USRUQz _2MgouXHqRQDP_5']"), 20);
     }
 
     //Board Deletion
     public void openFirstPersonalBoard() {
-        waitForElementLocatedAndClick(By.xpath("//*[@class='icon-lg icon-member']/../../..//li"), 40);
+        click(By.xpath("//*[@class='icon-lg icon-member']/../../..//li"));
     }
     public void clickMoreButton() {
-        WebElement moreButton = new WebDriverWait(wd, 30).until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(".js-open-more")));
+        WebElement moreButton = new WebDriverWait(wd, 30)
+                .until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(".js-open-more")));
         if(!moreButton.isDisplayed()) {
             wd.findElement(By.cssSelector(".board-header-btn.mod-show-menu.js-show-sidebar")).click();
         }
-        wd.findElement(By.cssSelector(".js-open-more")).click();
+        click(By.cssSelector(".js-open-more"));
     }
 
     public void initBoardDeletion() {
@@ -67,10 +70,11 @@ public class BoardHelper extends HelperBase {
         confirm();
     }
     public void clickOnCloseBoardInMoreMenu() {
-        waitForElementLocatedAndClick(By.cssSelector(".js-close-board"), 20);
+        click(By.cssSelector(".js-close-board"));
     }
+
     public void PermanentlyDeleteBoard() {
-        waitForElementLocatedAndClick(By.cssSelector(".js-delete"), 20);
+        click(By.cssSelector(".js-delete"));
         confirm();
     }
 
@@ -91,14 +95,10 @@ public class BoardHelper extends HelperBase {
 
     //testAddList
     public void clickOnAddListButton() {
-        waitForElementClickableAndClick(By.cssSelector(".placeholder"),20);
+        click(By.xpath("//*[@class='open-add-list js-open-add-list']//../span"));
     }
     public void putNameOfList(String nameOfList) {
-        type(By.cssSelector(".list-name-input"), nameOfList);
-    }
-
-    public void clickOnConfirmButton() {
-        waitForElementLocatedAndClick(By.cssSelector(".js-save-edit"), 20);
+        wd.findElement(By.cssSelector(".list-name-input")).sendKeys(nameOfList + Keys.ENTER);
     }
 
     //testListDeletion
@@ -106,18 +106,17 @@ public class BoardHelper extends HelperBase {
         if(!isElementPresent(By.cssSelector(".js-list-content"))){
             clickOnAddListButton();
             putNameOfList("NewList");
-            clickOnConfirmButton();;
         }
     }
     public void initListDeletion() {
-        waitForElementLocatedAndClick(By.cssSelector(".list-header-extras-menu"), 20);
-        waitForElementLocatedAndClick(By.cssSelector(".js-close-list"), 20);
+        click(By.cssSelector(".list-header-extras-menu"));
+        click(By.cssSelector(".js-close-list"));
     }
 
 
     public void createBoard() {
         initBoardCreation();
-        fillBoardForm(new Board().withName("TestNewBoard"));
+        fillBoardForm(new Board().withName("TestNewBoard").withColor("orange"));
         confirmBoardCreation();
         returnToHomePage();
     }
