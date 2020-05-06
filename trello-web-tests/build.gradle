@@ -14,6 +14,7 @@ repositories {
 dependencies {
     implementation 'org.seleniumhq.selenium:selenium-java:3.141.59'
     implementation 'org.testng:testng:7.1.0'
+    implementation 'ch.qos.logback:logback-classic:1.2.3'
 }
 
 test{
@@ -49,3 +50,4 @@ tasks.withType(JavaCompile) {
 tasks.withType(Test) {
     systemProperty "file.encoding", "UTF-8"
 }
+

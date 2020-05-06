@@ -1,0 +1,6 @@
+13:05:18.161 [main] INFO  com.qa.trello.tests.TestBase - Start test testBoardCreationEasy with parameters: [hhhhhhhhhhhhhhh, blue]
+13:05:22.395 [main] INFO  com.qa.trello.tests.TestBase - Stop test testBoardCreationEasy
+13:05:22.396 [main] INFO  com.qa.trello.tests.TestBase - Start test testBoardCreationEasy with parameters: [h, orange]
+13:05:25.555 [main] INFO  com.qa.trello.tests.TestBase - Stop test testBoardCreationEasy
+13:05:25.557 [main] INFO  com.qa.trello.tests.TestBase - Start test testBoardCreationEasy with parameters: [11111111, green]
+13:05:28.709 [main] INFO  com.qa.trello.tests.TestBase - Stop test testBoardCreationEasy
