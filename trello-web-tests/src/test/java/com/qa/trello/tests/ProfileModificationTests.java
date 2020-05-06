@@ -8,9 +8,9 @@ public class ProfileModificationTests extends TestBase {
     public void testChangeProfileAvatar(){
         app.getProfile().clickOnAvatar();
         app.getProfile().selectProfileAndVisibility();
-       // app.getProfile().initChangeProfilePhoto();
-      //  app.getProfile().uploadPhoto();
-      // app.getProfile().confirmChangeProfile();
+        app.getProfile().initChangeProfilePhoto();
+        app.getProfile().uploadPhoto();
+        app.getProfile().confirmChangeProfile();
     }
 
 
