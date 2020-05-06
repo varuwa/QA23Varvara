@@ -5,6 +5,7 @@
     <content url="file://$MODULE_DIR$/../../trello-web-tests">
       <excludeFolder url="file://$MODULE_DIR$/../../trello-web-tests/.gradle" />
       <excludeFolder url="file://$MODULE_DIR$/../../trello-web-tests/build" />
+      <excludeFolder url="file://$MODULE_DIR$/../../trello-web-tests/out" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
