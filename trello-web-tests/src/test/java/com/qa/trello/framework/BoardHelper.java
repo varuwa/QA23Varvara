@@ -42,14 +42,33 @@ public class BoardHelper extends HelperBase {
         waitForElementLocatedAndClick(By.cssSelector("[data-test-id='header-create-board-button']"), 20);
     }
     public void fillBoardForm(Board board) {
-        type(By.cssSelector("[data-test-id='create-board-title-input']"), board.getName());
-        waitForElementLocatedAndClick(By.cssSelector("._1vk4y48RR5OmqE"), 20);
-        waitForElementLocatedAndClick(By.cssSelector("._1uK2vQ_aMRS2NU"), 20); // //li[1]/button[@class='_2jR0BZMM5cBReR']
-        click(By.cssSelector("[title='" + board.getColor() + "']"));
+        typeBoardName(board.getName());
+        selectTeamFromBoardCreationForm(board.getTeam());
+        //waitForElementLocatedAndClick(By.cssSelector("._1vk4y48RR5OmqE"), 20); //по умолчанию группа
+        //waitForElementLocatedAndClick(By.cssSelector("._1uK2vQ_aMRS2NU"), 20); // //li[1]/button[@class='_2jR0BZMM5cBReR']
+        selectColorFromBoardCreationForm(board.getColor());
     }
 
-    public void confirmBoardCreation() {
+    private void selectColorFromBoardCreationForm(String color) {
+        if(color != null){
+            click(By.cssSelector("[title='" + color + "']"));
+        }
+    }
+
+    private void typeBoardName(String nameOfBoard){
+        type(By.cssSelector("[data-test-id='create-board-title-input']"), nameOfBoard);
+    }
+
+    private void selectTeamFromBoardCreationForm(String team){
+        if(team != null){
+            click(By.cssSelector("button.W6rMLOx8U0MrPx"));
+            click(By.xpath("//span[contains(text(), '" + team + "')]"));
+        }
+    }
+
+    public void confirmBoardCreation() throws InterruptedException {
         waitForElementLocatedAndClick(By.cssSelector("[class='_3UeOvlU6B5KUnS uj9Ovoj4USRUQz _2MgouXHqRQDP_5']"), 20);
+        Thread.sleep(3000);
     }
 
     //Board Deletion
@@ -114,7 +133,7 @@ public class BoardHelper extends HelperBase {
     }
 
 
-    public void createBoard() {
+    public void createBoard() throws InterruptedException {
         initBoardCreation();
         fillBoardForm(new Board().withName("TestNewBoard").withColor("orange"));
         confirmBoardCreation();

@@ -1,0 +1,12 @@
+13:11:44.483 [main] INFO  com.qa.trello.tests.TestBase - Start test testBoardCreation with parameters: [com.qa.trello.model.Board@7d898981]
+13:11:48.215 [main] INFO  com.qa.trello.tests.TestBase - Stop test testBoardCreation
+13:11:48.216 [main] INFO  com.qa.trello.tests.TestBase - Start test testBoardCreation with parameters: [com.qa.trello.model.Board@4b6e2263]
+13:11:52.384 [main] INFO  com.qa.trello.tests.TestBase - Stop test testBoardCreation
+13:11:52.385 [main] INFO  com.qa.trello.tests.TestBase - Start test testBoardCreation with parameters: [com.qa.trello.model.Board@3700ec9c]
+13:11:55.982 [main] INFO  com.qa.trello.tests.TestBase - Stop test testBoardCreation
+13:11:55.985 [main] INFO  com.qa.trello.tests.TestBase - Start test testBoardCreationEasy with parameters: [hhhhhhhhhhhhhhh, blue]
+13:12:23.746 [main] INFO  com.qa.trello.tests.TestBase - Stop test testBoardCreationEasy
+13:12:23.746 [main] INFO  com.qa.trello.tests.TestBase - Start test testBoardCreationEasy with parameters: [h, orange]
+13:12:28.999 [main] INFO  com.qa.trello.tests.TestBase - Stop test testBoardCreationEasy
+13:12:29.000 [main] INFO  com.qa.trello.tests.TestBase - Start test testBoardCreationEasy with parameters: [11111111, green]
+13:12:34.858 [main] INFO  com.qa.trello.tests.TestBase - Stop test testBoardCreationEasy

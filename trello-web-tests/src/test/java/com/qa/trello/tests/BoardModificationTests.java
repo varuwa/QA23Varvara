@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 
 public class BoardModificationTests extends TestBase {
     @BeforeMethod
-    public void ensurePreconditions() {
+    public void ensurePreconditions() throws InterruptedException {
         if (app.getBoard().getBoardsCount() == 0) {
             app.getBoard().createBoard();
         }
@@ -15,7 +15,7 @@ public class BoardModificationTests extends TestBase {
     }
 
     @Test
-    public void testChangeBackgroundToColors() {
+    public void testChangeBackgroundToColors() throws InterruptedException {
         app.getBoard().openFirstPersonalBoard();
         app.getBoard().openMenu();
         app.getBoard().initChangeBackgroundToColor();
@@ -25,14 +25,14 @@ public class BoardModificationTests extends TestBase {
     }
 
     @Test
-    public void testChangeNameOfBoard() {
+    public void testChangeNameOfBoard() throws InterruptedException {
         app.getBoard().openFirstPersonalBoard();
         app.getBoard().initNameChange();
         app.getBoard().returnToHomePage();
     }
 
     @Test
-    public void testAddList() {
+    public void testAddList() throws InterruptedException {
         app.getBoard().openFirstPersonalBoard();
         app.getBoard().clickOnAddListButton();
         app.getBoard().putNameOfList("NewList");
@@ -40,7 +40,7 @@ public class BoardModificationTests extends TestBase {
     }
 
     @Test
-    public void testListDeletion() {
+    public void testListDeletion() throws InterruptedException {
         app.getBoard().openFirstPersonalBoard();
         app.getBoard().isListPresent();
         app.getBoard().initListDeletion();

@@ -17,7 +17,7 @@ public class TeamCreationTests extends TestBase {
     }
 
     @Test
-    public void testTeamCreation(){
+    public void testTeamCreation() throws InterruptedException {
         int before = app.getTeam().getTeamsCount();
         app.getTeam().initTeamCreation();
         app.getTeam().fillForm(new Team().withName("NewTeam" + before++));

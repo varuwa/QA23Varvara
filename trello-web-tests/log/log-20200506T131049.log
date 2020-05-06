@@ -1,0 +1,2 @@
+13:11:12.912 [main] INFO  com.qa.trello.tests.TestBase - Start test testBoardCreation with parameters: []
+13:11:17.819 [main] INFO  com.qa.trello.tests.TestBase - Stop test testBoardCreation

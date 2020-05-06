@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 public class BoardDeletionTests extends TestBase {
 
     @BeforeMethod
-    public void ensurePreconditions() {
+    public void ensurePreconditions() throws InterruptedException {
             if (app.getBoard().getBoardsCount() == 0) {
             app.getBoard().createBoard();
         }
@@ -17,7 +17,7 @@ public class BoardDeletionTests extends TestBase {
     }
 
     @Test
-    public void testBoardDeletion() {
+    public void testBoardDeletion() throws InterruptedException {
         int before = app.getBoard().getBoardsCount();
         app.getBoard().openFirstPersonalBoard();
         app.getBoard().clickMoreButton();
@@ -30,7 +30,7 @@ public class BoardDeletionTests extends TestBase {
     }
 
     @Test(enabled = false)
-    public void test3BoardsDeletion() {
+    public void test3BoardsDeletion() throws InterruptedException {
         int before = app.getBoard().getBoardsCount();
         int count = 0;
         do {

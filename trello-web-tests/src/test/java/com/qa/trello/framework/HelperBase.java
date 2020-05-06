@@ -19,18 +19,18 @@ public class HelperBase {
 
     public void waitForElementLocatedAndClick(By locator, int timeOut) {
         new WebDriverWait (wd, timeOut).until(ExpectedConditions.presenceOfElementLocated(locator)).click();
-
     }
 
     public void waitForElementClickableAndClick(By locator, int timeOut) {
         new WebDriverWait (wd, timeOut).until(ExpectedConditions.elementToBeClickable(locator)).click();
-
     }
 
     public void type(By locator, String text) {
-        waitForElementLocatedAndClick(locator, 30);
-        wd.findElement(locator).clear();
-        wd.findElement(locator).sendKeys(text);
+        if(text != null){
+            waitForElementLocatedAndClick(locator, 30);
+            wd.findElement(locator).clear();
+            wd.findElement(locator).sendKeys(text);
+        }
     }
 
     public boolean checkPageUrl(String pageName){
@@ -41,9 +41,10 @@ public class HelperBase {
         return wd.findElements(locator).size() > 0; //тру или фолс, элемент есть или нет
     }
 
-    public void returnToHomePage() {
+    public void returnToHomePage() throws InterruptedException {
         click(By.cssSelector("[name='house']"));
         click(By.xpath("//*[@name='house']/.."));
+        Thread.sleep(4000);
     }
 
     public void confirm() {

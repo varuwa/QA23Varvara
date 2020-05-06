@@ -16,7 +16,7 @@ public class TeamModificationTests extends TestBase {
         }
 
     @Test
-    public void testChangeNameOfTeam(){
+    public void testChangeNameOfTeam() throws InterruptedException {
         app.getTeam().openFirstTeam();
         app.getTeam().openSettings();
         app.getTeam().editTeamProfile();

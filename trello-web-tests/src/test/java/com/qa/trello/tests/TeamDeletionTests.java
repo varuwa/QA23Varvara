@@ -18,7 +18,7 @@ public class TeamDeletionTests extends TestBase {
     }
 
     @Test
-    public void testTeamDeletion() {
+    public void testTeamDeletion() throws InterruptedException {
         int before = app.getTeam().getTeamsCount();
         app.getTeam().openFirstTeam();
         app.getTeam().clickOnSettings();
@@ -30,7 +30,7 @@ public class TeamDeletionTests extends TestBase {
     }
 
     @Test(enabled = false)
-    public void test2TeamDeletion() {
+    public void test2TeamDeletion() throws InterruptedException {
         int before = app.getTeam().getTeamsCount();
         int count = 1;
         do {
