@@ -16,9 +16,11 @@ public class ProfileHelper extends HelperBase{
     }
 
     public void clickOnAvatar() {
+
         click(By.cssSelector("[data-test-id=header-member-menu-button]"));
     }
     public void selectProfileAndVisibility() {
+
         click(By.cssSelector("[data-test-id=header-member-menu-profile]"));
     }
 
@@ -28,18 +30,12 @@ public class ProfileHelper extends HelperBase{
         click(By.cssSelector("._2e97X7K2YRLv4Q"));
     }
 
-//    public void initChangeProfilePhoto() {
-//        click(By.cssSelector("button._2e97X7K2YRLv4Q"));
-//
-//
-//    }
-
     public void attachFile (By locator, File file){
         wd.findElement(locator).sendKeys(file.getAbsolutePath());
     }
 
     public void uploadPhoto() {
-        attachFile(By.cssSelector("._34zIcoaCeL1FsG"), new File("C:\\Users\\varuw\\Documents\\GitHub\\QA23Varvara\\trello-web-tests\\src\\test\\resources\\cat_small.png"));
+        attachFile(By.cssSelector("[name=file]"), new File("C:\\Users\\varuw\\Documents\\GitHub\\QA23Varvara\\trello-web-tests\\src\\test\\resources\\cat_small.png"));
 
     }
 
