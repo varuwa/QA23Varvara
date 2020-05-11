@@ -34,7 +34,7 @@ public class BoardCreationTestsDataProvider extends TestBase {
         return list.iterator();
     }
 
-    @Test(dataProvider = "validBoardsEasy")
+    @Test(enabled = false, dataProvider = "validBoardsEasy")
     public void testBoardCreationEasy(String boardName, String boardColor) throws InterruptedException {
         //Board board = new Board().withName(boardName).withColor(boardColor);
 
@@ -65,7 +65,7 @@ public class BoardCreationTestsDataProvider extends TestBase {
         return list.iterator();
     }
 
-    @Test(dataProvider = "validBoards")
+    @Test(enabled = false, dataProvider = "validBoards")
     public void testBoardCreation(Board board) throws InterruptedException {
         int before = app.getBoard().getBoardsCount();
         app.getBoard().initBoardCreation();

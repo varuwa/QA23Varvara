@@ -31,7 +31,7 @@ public class BoardModificationTests extends TestBase {
         app.getBoard().returnToHomePage();
     }
 
-    @Test
+    @Test(enabled = false)
     public void testAddList() throws InterruptedException {
         app.getBoard().openFirstPersonalBoard();
         app.getBoard().clickOnAddListButton();
