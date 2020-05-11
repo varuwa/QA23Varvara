@@ -33,6 +33,7 @@ public class BoardCreationTests extends TestBase {
         int after = app.getBoard().getBoardsCount();
         Assert.assertEquals(after, before + 1);
         System.out.println("was: " + before + " now: " + after);
+        Thread.sleep(3000);
     }
 
 }

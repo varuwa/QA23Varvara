@@ -27,6 +27,7 @@ public class BoardDeletionTests extends TestBase {
         int after = app.getBoard().getBoardsCount();
         Assert.assertEquals(after, before - 1); //проверка, что актуальное соотвествует полученному минус 1
         System.out.println("was: " + before + " now: " + after);
+        Thread.sleep(3000);
     }
 
     @Test(enabled = false)
