@@ -1,2 +1,0 @@
-12:22:57.000 [Test worker] INFO  com.qa.trello.tests.TestBase - Start test testOldBoardCreation with parameters: []
-12:23:03.309 [Test worker] INFO  com.qa.trello.tests.TestBase - Stop test testOldBoardCreation

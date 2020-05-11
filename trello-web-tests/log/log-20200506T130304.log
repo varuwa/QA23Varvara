@@ -1,6 +1,0 @@
-13:03:23.891 [main] INFO  com.qa.trello.tests.TestBase - Start test testBoardCreation with parameters: [com.qa.trello.model.Board@68d279ec]
-13:03:27.853 [main] INFO  com.qa.trello.tests.TestBase - Stop test testBoardCreation
-13:03:27.854 [main] INFO  com.qa.trello.tests.TestBase - Start test testBoardCreation with parameters: [com.qa.trello.model.Board@1b7c473a]
-13:04:00.810 [main] INFO  com.qa.trello.tests.TestBase - Stop test testBoardCreation
-13:04:00.810 [main] INFO  com.qa.trello.tests.TestBase - Start test testBoardCreation with parameters: [com.qa.trello.model.Board@37091312]
-13:04:04.231 [main] INFO  com.qa.trello.tests.TestBase - Stop test testBoardCreation
