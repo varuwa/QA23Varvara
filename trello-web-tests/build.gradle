@@ -39,6 +39,15 @@ task testBoards(type: Test){
     }
 }
 
+task testCreateBoard(type: Test){
+    useTestNG(){
+        suites 'src/test/resources/testng-create-board.xml'
+    }
+    if(project.hasProperty('browser')){
+        systemProperty 'browser', "${browser}"
+    }
+}
+
 task testTeams(type: Test){
     useTestNG(){
         suites 'src/test/resources/testng-teams.xml'

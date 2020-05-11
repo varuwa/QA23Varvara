@@ -39,7 +39,7 @@ public class BoardModificationTests extends TestBase {
         app.getBoard().returnToHomePage();
     }
 
-    @Test
+    @Test(enabled = false)
     public void testListDeletion() throws InterruptedException {
         app.getBoard().openFirstPersonalBoard();
         app.getBoard().isListPresent();

@@ -1,0 +1,10 @@
+20:08:56.742 [main] INFO  com.qa.trello.tests.TestBase - Start test testBoardCreation with parameters: []
+20:09:09.727 [main] INFO  com.qa.trello.tests.TestBase - Stop test testBoardCreation
+20:09:09.729 [main] INFO  com.qa.trello.tests.TestBase - Start test testChangeBackgroundToColors with parameters: []
+20:09:29.471 [main] INFO  com.qa.trello.tests.TestBase - Stop test testChangeBackgroundToColors
+20:09:29.472 [main] INFO  com.qa.trello.tests.TestBase - Start test testChangeNameOfBoard with parameters: []
+20:09:34.066 [main] INFO  com.qa.trello.tests.TestBase - Stop test testChangeNameOfBoard
+20:09:34.117 [main] INFO  com.qa.trello.tests.TestBase - Start test testListDeletion with parameters: []
+20:10:05.195 [main] INFO  com.qa.trello.tests.TestBase - Stop test testListDeletion
+20:10:05.197 [main] INFO  com.qa.trello.tests.TestBase - Start test testBoardDeletion with parameters: []
+20:10:10.119 [main] INFO  com.qa.trello.tests.TestBase - Stop test testBoardDeletion
