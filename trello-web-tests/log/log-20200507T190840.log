@@ -1,4 +1,0 @@
-19:09:00.725 [main] INFO  com.qa.trello.tests.TestBase - Start test testChangeProfileAvatar with parameters: []
-19:09:08.349 [main] INFO  com.qa.trello.tests.TestBase - screenshot before: screen-1588867740728.png
-19:09:08.350 [main] INFO  com.qa.trello.tests.TestBase - screenshot after: screen-1588867747951.png
-19:09:12.491 [main] INFO  com.qa.trello.tests.TestBase - Stop test testChangeProfileAvatar

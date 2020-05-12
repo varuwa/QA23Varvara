@@ -20,9 +20,6 @@ public class BoardCreationTestsDataProvider extends TestBase {
         if (!app.getBoard().isOnBoardsPage()) {
             app.getBoard().goToBoardsPageUrl("varuwa");
         }
-        if (!app.getBoard().isOnBoardsPage()) {
-            app.getBoard().goToBoardsPageUrl("varuwa");
-        }
     }
 
     @DataProvider
