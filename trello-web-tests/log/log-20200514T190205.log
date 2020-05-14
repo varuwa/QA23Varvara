@@ -1,0 +1,2 @@
+19:02:24.802 [Test worker] INFO  com.qa.trello.tests.TestBase - Start test testBoardCreation with parameters: []
+19:02:42.340 [Test worker] INFO  com.qa.trello.tests.TestBase - Stop test testBoardCreation

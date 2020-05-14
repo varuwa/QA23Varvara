@@ -26,8 +26,11 @@ task testRegression(type: Test){
         suites 'src/test/resources/testng.xml'
     }
         if(project.hasProperty('browser')){
-            systemProperty 'browser', "${browser}"
-        }
+        systemProperty 'browser', "${browser}"
+    }
+    if(project.hasProperty('target')){
+        systemProperty 'target', "${target}"
+    }
 }
 
 task testBoards(type: Test){
@@ -36,6 +39,9 @@ task testBoards(type: Test){
     }
     if(project.hasProperty('browser')){
         systemProperty 'browser', "${browser}"
+    }
+    if(project.hasProperty('target')){
+        systemProperty 'target', "${target}"
     }
 }
 
@@ -46,6 +52,9 @@ task testCreateBoard(type: Test){
     if(project.hasProperty('browser')){
         systemProperty 'browser', "${browser}"
     }
+    if(project.hasProperty('target')){
+        systemProperty 'target', "${target}"
+    }
 }
 
 task testTeams(type: Test){
@@ -54,6 +63,9 @@ task testTeams(type: Test){
     }
     if(project.hasProperty('browser')){
         systemProperty 'browser', "${browser}"
+    }
+    if(project.hasProperty('target')){
+        systemProperty 'target', "${target}"
     }
 }
 

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.qa.trello.tests.BoardCreationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-05-14T16:02:29" hostname="LAPTOP-1PAU2VV8" time="12.718">
+  <properties/>
+  <testcase name="testBoardCreation" classname="com.qa.trello.tests.BoardCreationTests" time="12.718"/>
+  <system-out><![CDATA[19:02:24.802 [Test worker] INFO  com.qa.trello.tests.TestBase - Start test testBoardCreation with parameters: []
+was: 44 now: 45
+19:02:42.340 [Test worker] INFO  com.qa.trello.tests.TestBase - Stop test testBoardCreation
+]]></system-out>
+  <system-err><![CDATA[JavaScript error: https://trello.com/, line 24: ChunkLoadError: Loading chunk 36 failed.
+(error: https://a.trellocdn.com/prgb/dist/gamma-cross-flow-overlay.c49349713b9148b7737f.js)
+JavaScript error: https://trello.com/, line 24: ChunkLoadError: Loading chunk 29 failed.
+(error: https://a.trellocdn.com/prgb/dist/enterprise-menu-popover.452bf429c1527b782cf4.js)
+JavaScript error: https://trello.com/, line 24: ChunkLoadError: Loading chunk 7 failed.
+(error: https://a.trellocdn.com/prgb/dist/aa-migration-error.a30383f58092f4c5a5e6.js)
+JavaScript error: https://trello.com/, line 24: ChunkLoadError: Loading chunk 35 failed.
+(error: https://a.trellocdn.com/prgb/dist/gamma-create-team-overlay.0ee110ff9ef287e17545.js)
+JavaScript error: https://trello.com/, line 24: ChunkLoadError: Loading chunk 21 failed.
+(error: https://a.trellocdn.com/prgb/dist/create-board-overlay.7df613cd264b38692a46.js)
+JavaScript error: https://trello.com/, line 24: ChunkLoadError: Loading chunk 41 failed.
+(error: https://a.trellocdn.com/prgb/dist/header-member-menu-popover.4a79b41909c7e5aea8b8.js)
+JavaScript error: https://trello.com/, line 24: ChunkLoadError: Loading chunk 26 failed.
+(error: https://a.trellocdn.com/prgb/dist/email-hygiene-wizard.b7d7b59d553ae97461e6.js)
+JavaScript error: https://trello.com/, line 24: ChunkLoadError: Loading chunk 8 failed.
+(error: https://a.trellocdn.com/prgb/dist/aa-migration-wizard.4196f12557933c131df1.js)
+JavaScript error: https://trello.com/, line 24: ChunkLoadError: Loading chunk 18 failed.
+(error: https://a.trellocdn.com/prgb/dist/closed-boards-overlay.cd54f5916f74420621f1.js)
+]]></system-err>
+</testsuite>

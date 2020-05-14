@@ -1,10 +1,11 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="Regression" verbose="1" >
+<suite name="Boards" verbose="1" >
 
     <test name="Boards" >
         <classes>
             <class name="com.qa.trello.tests.BoardCreationTests" />
+            <class name="com.qa.trello.tests.BoardCreationTestsDataProvider" />
             <class name="com.qa.trello.tests.BoardModificationTests" />
             <class name="com.qa.trello.tests.BoardDeletionTests" />
         </classes>
