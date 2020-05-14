@@ -8,6 +8,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.List;
+
 public class BoardHelper extends HelperBase {
 
     public BoardHelper(WebDriver wd) {
@@ -139,5 +141,25 @@ public class BoardHelper extends HelperBase {
         confirmBoardCreation();
         returnToHomePage();
     }
+
+    public void getBoardsList(){
+        List<WebElement> boards = wd.findElements(By.xpath("//*[@class='icon-lg icon-member']/../../..//li"));
+        for(WebElement board : boards){
+            String name = board.getText();
+            System.out.println(name);
+        }
+
+    }
+
+    //  public void test() {
+//    //go to needed page
+//    List<WebElement> cards = wd.findElements(By.cssSelector("      "));
+//    for (WebElement card : cards) {
+//      WebElement button = wd.findElement(By.cssSelector("      "));
+//      button.click();
+//      wd.navigate().back();
+//
+//    }
+//  }
 
 }

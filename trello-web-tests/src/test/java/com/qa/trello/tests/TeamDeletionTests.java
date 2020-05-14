@@ -29,7 +29,7 @@ public class TeamDeletionTests extends TestBase {
         System.out.println("was: " + before + " now: " + after);
     }
 
-    @Test(enabled = false)
+    @Test(enabled = true)
     public void test2TeamDeletion() throws InterruptedException {
         int before = app.getTeam().getTeamsCount();
         int count = 1;

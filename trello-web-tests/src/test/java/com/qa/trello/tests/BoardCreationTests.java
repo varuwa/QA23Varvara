@@ -25,5 +25,9 @@ public class BoardCreationTests extends TestBase {
         System.out.println("was: " + before + " now: " + after);
         Thread.sleep(3000);
     }
+    @Test
+    public void getBoardsNames(){
+        app.getBoard().getBoardsList();
+    }
 
 }

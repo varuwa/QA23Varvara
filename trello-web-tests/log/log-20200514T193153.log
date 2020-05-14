@@ -1,0 +1,2 @@
+19:32:14.175 [main] INFO  com.qa.trello.tests.TestBase - Start test getBoardsNames with parameters: []
+19:32:15.695 [main] INFO  com.qa.trello.tests.TestBase - Stop test getBoardsNames
