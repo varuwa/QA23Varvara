@@ -1,5 +1,7 @@
 package com.qa.trello.model;
 
+import java.util.Objects;
+
 public class Board {
     private String name;
     private String team;
@@ -33,4 +35,23 @@ public class Board {
         return color;
     }
 
+    @Override
+    public String toString() {
+        return "Board{" +
+                "name='" + name + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Board board = (Board) o;
+        return Objects.equals(name, board.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
+    }
 }

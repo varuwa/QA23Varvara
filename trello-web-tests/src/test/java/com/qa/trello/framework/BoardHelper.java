@@ -8,7 +8,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class BoardHelper extends HelperBase {
 
@@ -20,13 +23,14 @@ public class BoardHelper extends HelperBase {
         return wd.findElements(By.xpath("//*[@class='icon-lg icon-member']/../../..//li")).size() - 1;
         //получает количество досок, минус один, так как последняя не доска
     }
-    public void openMenu(){
-        if(isElementPresent(By.cssSelector("[class='board-menu js-fill-board-menu hide']"))){
+
+    public void openMenu() {
+        if (isElementPresent(By.cssSelector("[class='board-menu js-fill-board-menu hide']"))) {
             waitForElementLocatedAndClick(By.cssSelector(".js-show-sidebar"), 20);
         }
     }
 
-    public void closeBoardMenu(){
+    public void closeBoardMenu() {
         waitForElementLocatedAndClick(By.cssSelector(".js-hide-sidebar"), 20);
     }
 
@@ -34,8 +38,9 @@ public class BoardHelper extends HelperBase {
         String url = wd.getCurrentUrl();
         return url.contains("boards");
     }
-    public void goToBoardsPageUrl(String username){
-        wd.navigate().to("https://trello.com/"+username+"/boards");
+
+    public void goToBoardsPageUrl(String username) {
+        wd.navigate().to("https://trello.com/" + username + "/boards");
     }
 
     //Board Creation
@@ -43,6 +48,7 @@ public class BoardHelper extends HelperBase {
         waitForElementLocatedAndClick(By.name("add"), 20);
         waitForElementLocatedAndClick(By.cssSelector("[data-test-id='header-create-board-button']"), 20);
     }
+
     public void fillBoardForm(Board board) {
         typeBoardName(board.getName());
         selectTeamFromBoardCreationForm(board.getTeam());
@@ -52,17 +58,17 @@ public class BoardHelper extends HelperBase {
     }
 
     private void selectColorFromBoardCreationForm(String color) {
-        if(color != null){
+        if (color != null) {
             click(By.cssSelector("[title='" + color + "']"));
         }
     }
 
-    private void typeBoardName(String nameOfBoard){
+    private void typeBoardName(String nameOfBoard) {
         type(By.cssSelector("[data-test-id='create-board-title-input']"), nameOfBoard);
     }
 
-    private void selectTeamFromBoardCreationForm(String team){
-        if(team != null){
+    private void selectTeamFromBoardCreationForm(String team) {
+        if (team != null) {
             click(By.cssSelector("button.W6rMLOx8U0MrPx"));
             click(By.xpath("//span[contains(text(), '" + team + "')]"));
         }
@@ -77,10 +83,11 @@ public class BoardHelper extends HelperBase {
     public void openFirstPersonalBoard() {
         click(By.xpath("//*[@class='icon-lg icon-member']/../../..//li"));
     }
+
     public void clickMoreButton() {
         WebElement moreButton = new WebDriverWait(wd, 30)
                 .until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(".js-open-more")));
-        if(!moreButton.isDisplayed()) {
+        if (!moreButton.isDisplayed()) {
             wd.findElement(By.cssSelector(".board-header-btn.mod-show-menu.js-show-sidebar")).click();
         }
         click(By.cssSelector(".js-open-more"));
@@ -90,6 +97,7 @@ public class BoardHelper extends HelperBase {
         clickOnCloseBoardInMoreMenu();
         confirm();
     }
+
     public void clickOnCloseBoardInMoreMenu() {
         click(By.cssSelector(".js-close-board"));
     }
@@ -104,6 +112,7 @@ public class BoardHelper extends HelperBase {
         waitForElementLocatedAndClick(By.cssSelector(".js-change-background"), 20);
         waitForElementLocatedAndClick(By.cssSelector(".js-bg-colors"), 20);
     }
+
     public void clickOnChosenColor(String chosenColor) {
         waitForElementLocatedAndClick(By.cssSelector(chosenColor), 20);
     }
@@ -118,17 +127,19 @@ public class BoardHelper extends HelperBase {
     public void clickOnAddListButton() {
         click(By.xpath("//*[@class='open-add-list js-open-add-list']//../span"));
     }
+
     public void putNameOfList(String nameOfList) {
         wd.findElement(By.cssSelector(".list-name-input")).sendKeys(nameOfList + Keys.ENTER);
     }
 
     //testListDeletion
-    public void isListPresent(){
-        if(!isElementPresent(By.cssSelector(".js-list-content"))){
+    public void isListPresent() {
+        if (!isElementPresent(By.cssSelector(".js-list-content"))) {
             clickOnAddListButton();
             putNameOfList("NewList");
         }
     }
+
     public void initListDeletion() {
         click(By.cssSelector(".list-header-extras-menu"));
         click(By.cssSelector(".js-close-list"));
@@ -142,13 +153,36 @@ public class BoardHelper extends HelperBase {
         returnToHomePage();
     }
 
-    public void getBoardsList(){
-        List<WebElement> boards = wd.findElements(By.xpath("//*[@class='icon-lg icon-member']/../../..//li"));
-        for(WebElement board : boards){
-            String name = board.getText();
-            System.out.println(name);
-        }
+    public List<Board> getBoardsList() {
+        List<Board> boards = new ArrayList<>();
 
+        List<WebElement> elements = wd.findElements(By.xpath("//*[@class='icon-lg icon-member']/../../..//li"));
+        for (WebElement element : elements) {
+            String name = element.getText();
+            System.out.println(name);
+            boards.add(new Board().withName(name));
+        }
+        return boards;
+    }
+
+    public Set<Board> getBoardsSet() {
+        Set<Board> boards = new HashSet<>();
+
+        List<WebElement> elements = wd.findElements(By.xpath("//*[@class='icon-lg icon-member']/../../..//li"));
+        for (WebElement element : elements) {
+            String name = element.getText();
+            System.out.println(name);
+            Board board = new Board().withName(name);
+            boards.add(board);
+        }
+        return boards;
+    }
+
+    public void deleteBoard() throws InterruptedException {
+        clickMoreButton();
+        initBoardDeletion();
+        PermanentlyDeleteBoard();
+        returnToHomePage();
     }
 
     //  public void test() {

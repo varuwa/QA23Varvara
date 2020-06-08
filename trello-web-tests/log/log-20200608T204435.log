@@ -1,0 +1,2 @@
+20:44:54.852 [main] INFO  com.qa.trello.tests.TestBase - Start test testBoardDeletionSet with parameters: []
+20:45:17.038 [main] INFO  com.qa.trello.tests.TestBase - Stop test testBoardDeletionSet
